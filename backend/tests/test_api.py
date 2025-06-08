@@ -1,6 +1,6 @@
 import unittest
 import json
-from api import app
+from backend.api import app
 
 class TestAPI(unittest.TestCase):
 
