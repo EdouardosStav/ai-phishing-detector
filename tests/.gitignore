@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code project files
+.vscode/
+.history/
+
+# Environment
+.env
+.venv/
+venv/
+env/
+*.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# PDF Reports
+report.pdf
+
+# Jupyter Notebooks (if you add them)
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# PyInstaller
+*.spec
+dist/
+build/
+
+# Python egg info
+*.egg-info/
+*.egg
+
+# Testing cache
+.cache/
+.pytest_cache/
+.coverage
+nosetests.xml
+coverage.xml
+htmlcov/
+
+# GitHub Actions
+.github/
