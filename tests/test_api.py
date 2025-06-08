@@ -1,8 +1,5 @@
 import unittest
 import json
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from api import app
 
 class TestAPI(unittest.TestCase):
@@ -28,6 +25,41 @@ class TestAPI(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 400)
         self.assertIn("error", response.get_json())
+
+    def test_invalid_url_format(self):
+        response = self.client.post('/analyze-url',
+            data=json.dumps({"url": "not-a-url"}),
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("risk_level", response.get_json())
+
+    def test_empty_url(self):
+        response = self.client.post('/analyze-url',
+            data=json.dumps({"url": ""}),
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("error", response.get_json())
+
+    def test_non_http_url(self):
+        response = self.client.post('/analyze-url',
+            data=json.dumps({"url": "ftp://malicious.example.tk"}),
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("risk_level", response.get_json())
+        
+    
+    def test_generate_email_report(self):
+        response = self.client.post('/generate-email-report',
+            data=json.dumps({
+                "email": "Reset your password here: http://fake-reset.com"
+            }),
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.mimetype, "application/pdf")
 
 if __name__ == '__main__':
     unittest.main()
