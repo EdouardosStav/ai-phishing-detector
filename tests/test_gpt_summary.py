@@ -7,12 +7,14 @@ from core.gpt_summary import generate_gpt_summary
 class TestGPTSummary(unittest.TestCase):
 
     def test_summary_no_api_key(self):
-        result = generate_gpt_summary(
-            url="http://example.com",
-            indicators={"suspicious_keywords": ["login"]},
-            risk_level="Medium"
-        )
-        self.assertIn("No API key found", result)
+        url = "http://example.com"
+        indicators = {"suspicious_keywords": ["login"]}
+        risk_level = "medium"
+        
+        result = generate_gpt_summary(url, indicators, risk_level)
+        
+        self.assertIn("The URL http://example.com has been assessed", result)
+        self.assertIn("suspicious keywords", result)
 
 if __name__ == '__main__':
     unittest.main()

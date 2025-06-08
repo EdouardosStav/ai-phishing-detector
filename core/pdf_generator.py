@@ -1,7 +1,7 @@
 import time
 from datetime import datetime
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 import os
 
@@ -42,15 +42,15 @@ def generate_email_pdf_report(email_snippet, indicators, score, risk_level, gpt_
         output_path = os.path.abspath("report_email.pdf")
 
     time.sleep(1)
-
     doc = SimpleDocTemplate(output_path, pagesize=A4)
     styles = getSampleStyleSheet()
+    body_style = ParagraphStyle('Body', parent=styles['Normal'], fontSize=10, leading=14)
     elements = []
 
     elements.append(Paragraph("Phishing Risk Analysis Report - Email", styles['Title']))
     elements.append(Spacer(1, 12))
     elements.append(Paragraph(f"<b>Date:</b> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", styles['Normal']))
-    elements.append(Paragraph(f"<b>Email Snippet:</b> {email_snippet[:100]}{'...' if len(email_snippet) > 100 else ''}", styles['Normal']))
+    elements.append(Paragraph(f"<b>Email Snippet:</b> {email_snippet}", body_style))
     elements.append(Paragraph(f"<b>Risk Score:</b> {score}/10", styles['Normal']))
     elements.append(Paragraph(f"<b>Risk Level:</b> {risk_level}", styles['Normal']))
     elements.append(Spacer(1, 12))
@@ -59,11 +59,11 @@ def generate_email_pdf_report(email_snippet, indicators, score, risk_level, gpt_
     for key, value in indicators.items():
         if value:
             text = ", ".join(value) if isinstance(value, list) else key.replace('_', ' ').capitalize()
-            elements.append(Paragraph(f"• {text}", styles['Normal']))
+            elements.append(Paragraph(f"\u2022 {text}", styles['Normal']))
     elements.append(Spacer(1, 12))
 
     elements.append(Paragraph("<b>AI-Generated Explanation:</b>", styles['Heading3']))
-    elements.append(Paragraph(gpt_summary, styles['Normal']))
+    elements.append(Paragraph(gpt_summary, body_style))
 
     doc.build(elements)
     return output_path

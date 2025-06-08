@@ -60,6 +60,22 @@ class TestAPI(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.mimetype, "application/pdf")
+       
+    def test_analyze_email(self):
+        payload = {
+            "email": "Dear user, We noticed unusual activity in your PayPal account. Please verify your identity immediately by clicking the link: http://paypal.login.verify.tk"
+        }
+        response = self.client.post(
+            "/analyze-email",
+            data=json.dumps(payload),
+            content_type="application/json"
+        )
+        self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+        self.assertIn("score", data)
+        self.assertIn("risk_level", data)
+        self.assertIn("indicators", data)
+        self.assertEqual(data["risk_level"], "Low")  # Based on basic indicators in example
 
 if __name__ == '__main__':
     unittest.main()
