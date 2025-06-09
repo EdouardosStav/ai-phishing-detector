@@ -4,7 +4,7 @@
 
 AI Phishing Detector is a full-stack application designed to identify and assess the risk of phishing URLs and emails using heuristic techniques and AI-powered explanations. It provides detailed PDF reports based on the analysis and allows users to track past assessments. The frontend is built with Lovable (Vite + ShadCN + React), while the backend is a Flask API with Python logic for phishing detection.
 
-Live site: [https://phishingdetecai.cloud](https://phishingdetecai.cloud)
+Live site: [https://phishingdetecai.cloud](https://phisingdetecai.cloud/)
 
 - **Frontend GitHub Repository**: [sentinel-phish-guard](https://github.com/EdouardosStav/ai-phishing-detector) *(Built with the help of Lovable)*
 - **Backend GitHub Repository**: [phishing-detector](https://github.com/EdouardosStav/phishing-detector)
