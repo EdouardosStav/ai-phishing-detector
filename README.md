@@ -7,7 +7,7 @@ AI Phishing Detector is a full-stack application designed to identify and assess
 Live site: [https://phishingdetecai.cloud](https://phisingdetecai.cloud/)
 
 - **Frontend GitHub Repository**: [sentinel-phish-guard](https://github.com/EdouardosStav/ai-phishing-detector) *(Built with the help of Lovable)*
-- **Backend GitHub Repository**: [phishing-detector](https://github.com/EdouardosStav/phishing-detector)
+- **Backend GitHub Repository**: [phishing-detector](https://github.com/EdouardosStav/ai-phishing-detector)
 
 
 ---
