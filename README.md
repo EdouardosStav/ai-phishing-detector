@@ -16,13 +16,6 @@ Live site: [https://phishingdetecai.cloud](https://phishingdetecai.cloud)
 
 Before implementing the detection logic, we conducted light research by exploring public resources, online tools, and existing phishing detection applications. Our goal was to identify practical heuristics commonly used to detect suspicious content in both URLs and emails.
 
-We reviewed materials from well-known platforms such as:
-
-- [**Google Safe Browsing**](https://transparencyreport.google.com/safe-browsing/search)
-- [**Netcraft Phishing Site Feed**](https://www.netcraft.com/phishing-site-feed/)
-- [**PhishTank**](https://phishtank.org/)
-- **Open discussions on GitHub phishing repositories and community blogs**
-
 Based on this research, we selected the following heuristics to inform our detection logic:
 
 - **Keyword Matching**: Detection of terms frequently used in phishing, such as `"verify"`, `"login"`, `"update"`, `"account"`, and `"security alert"`.
