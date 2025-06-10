@@ -3,3 +3,5 @@ flake8
 openai
 reportlab
 python-dotenv==1.1.0
+flask-cors>=3.0.10
+
