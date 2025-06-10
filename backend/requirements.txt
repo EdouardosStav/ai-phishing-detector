@@ -1,4 +1,0 @@
-flask
-flake8
-openai
-reportlab
