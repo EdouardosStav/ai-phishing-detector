@@ -4,7 +4,6 @@ from flask_cors import CORS
 from core.heurestics import analyze_url, calculate_score, classify_risk
 from core.gpt_summary import generate_gpt_summary
 from core.pdf_generator import generate_pdf_report, generate_email_pdf_report
-import os   
 from core.email_analysis import analyze_email_text, calculate_email_score
 
 load_dotenv()

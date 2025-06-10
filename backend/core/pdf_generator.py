@@ -9,7 +9,7 @@ def generate_pdf_report(url, indicators, score, risk_level, gpt_summary, output_
     if not output_path:
         output_path = os.path.abspath("report.pdf")
 
-    time.sleep(1)  # Ensures file is fully written before sending
+    time.sleep(1)
 
     doc = SimpleDocTemplate(output_path, pagesize=A4)
     styles = getSampleStyleSheet()

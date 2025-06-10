@@ -32,7 +32,7 @@ class TestEmailScore(unittest.TestCase):
             "has_encoded_chars": True
         }
         score = calculate_email_score(indicators)
-        self.assertEqual(score, 6)  # 2 phrases + 2 (link) + 2 (obfuscation)
+        self.assertEqual(score, 6)
 
     def test_empty_indicators(self):
         indicators = {
