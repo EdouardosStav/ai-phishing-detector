@@ -2,3 +2,4 @@ flask
 flake8
 openai
 reportlab
+python-dotenv==1.1.0
