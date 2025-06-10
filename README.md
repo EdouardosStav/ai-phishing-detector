@@ -12,6 +12,23 @@ Live site: [https://phishingdetecai.cloud](https://phisingdetecai.cloud/)
 
 ---
 
+## Screenshots
+
+### Homepage
+![Homepage](images/homepage.png)
+
+### Security Analysis Dashboard
+![Dashboard](images/dashboard.png)
+
+### URL Analysis
+![URL Analysis](images/url-analysis.png)
+
+### Email Analysis
+![Email Analysis](images/email-analysis.png)
+
+### Reports History
+![Reports History](images/reports-history.png)
+
 ## Research & Heuristics
 
 Before implementing the detection logic, we conducted light research by exploring public resources, online tools, and existing phishing detection applications. Our goal was to identify practical heuristics commonly used to detect suspicious content in both URLs and emails.
